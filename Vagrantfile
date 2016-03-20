@@ -25,6 +25,7 @@ Vagrant.configure("2") do |config|
   # don't automatically start syncing,
   # we'll kick that off in the startup script
   config.gatling.rsync_on_startup = false
+  config.gatling.latency = 1
 
   # forward ports
   config.vm.network :forwarded_port, guest: 3000, host: 3000 # service

@@ -9,9 +9,15 @@ docker-machine ip default
 # docker compose
 docker-compose run app bundle
 
+# if you add a gem run:
+vagrant provision
+
 # vagrant
 vagrant plugin install vagrant-gatling-rsync vagrant-docker-compose
 
 # starting
 export LOCAL_DB_HOST=`ipconfig getifaddr en0`
 ./start-dev.sh
+
+# view server startup log
+vagrant ssh; docker logs

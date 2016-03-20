@@ -21,6 +21,9 @@ gem 'rack-cors'
 
 gem 'knock', '~> 1.4.2'
 
+gem 'active_model_serializers', :git => 'https://github.com/rails-api/active_model_serializers.git'
+# gem 'jsonapi-resources'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
