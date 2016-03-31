@@ -21,3 +21,8 @@ export LOCAL_DB_HOST=`ipconfig getifaddr en0`
 
 # view server startup log
 vagrant ssh; docker logs
+
+vagrant ssh; docker-compose up
+
+# if you add a build package
+docker-compose rebuild

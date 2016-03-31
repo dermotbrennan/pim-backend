@@ -3,7 +3,7 @@ FROM alpine:3.2
 MAINTAINER CenturyLink Labs <innovationslab@ctl.io>
 
 ENV BUILD_PACKAGES="curl-dev ruby-dev build-base" \
-    DEV_PACKAGES="zlib-dev libxml2-dev libxslt-dev tzdata yaml-dev postgresql-dev git" \
+    DEV_PACKAGES="zlib-dev libxml2-dev libxslt-dev tzdata yaml-dev postgresql-dev git imagemagick-dev" \
     RUBY_PACKAGES="ruby ruby-io-console ruby-json yaml"
 
 RUN mkdir /app
