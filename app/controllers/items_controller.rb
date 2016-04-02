@@ -37,6 +37,15 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      head :no_content
+    else
+      head :bad_request
+    end
+  end
+
   private
     def json_params
       ja = json_attributes()
