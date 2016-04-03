@@ -9,6 +9,7 @@ app:
     - "3000:3000"
   extra_hosts:
     - "db:192.168.192.32"
+    - "s3:192.168.192.32"
     #- "db:${LOCAL_DB_HOST}"
 bundlebox:
   image: busybox

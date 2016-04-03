@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# Starting fakes3
+fakes3 --root public/system --port 10001

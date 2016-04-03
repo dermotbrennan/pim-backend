@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '>= 5.0.0.beta1', '< 5.1'
+gem 'rails', '>= 5.0.0.beta2', '< 5.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -26,9 +26,13 @@ gem 'active_model_serializers', :git => 'https://github.com/rails-api/active_mod
 
 gem "paperclip", "~> 5.0.0.beta1"
 
+# gem "aws-sdk", "~> 1.6"
+gem "aws-sdk", "~> 2.2.31"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem "fakes3"
 end
 
 group :development do
