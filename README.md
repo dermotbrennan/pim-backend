@@ -1,27 +1,5 @@
-## README
+# Personal Inventory Manager - backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails 5 API backend. It manages requests from the ember frontend application.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-# Starting fakes3
-fakes3 --root public/system --port 10001
+By default, the application uses S3 for image storage, PostgreSQL as the database.
