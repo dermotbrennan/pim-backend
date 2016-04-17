@@ -10,10 +10,15 @@ module Knock
 
   private
     def authenticate!
-      if user.authenticate(auth_params[:password])
-        return true
-      else
-        render json: { error: "Sorry, we could not find a user with that username and password"}, status: :not_found
+      begin
+        error_msg = "Sorry, we could not find a user with that username and password"
+        if user.authenticate(auth_params[:password])
+          return true
+        else
+          render json: { error: error_msg}, status: :bad_request
+        end
+      rescue ActiveRecord::RecordNotFound
+        render json: { error: error_msg}, status: :bad_request
       end
     end
     #
