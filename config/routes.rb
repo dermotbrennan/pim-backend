@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+
   root "welcome#index"
   resources :item_photos
   resources :items
