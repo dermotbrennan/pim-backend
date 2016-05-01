@@ -2,17 +2,19 @@ class ItemsController < ApplicationController
   before_action :authenticate
 
   def index
-    render json: Item.all
+    @list = find_list(params[:list_id])
+    @items = @list.items
+    render json: @items, includes: ['list']
   end
 
   def show
-    render json: Item.find(params[:id])
+    render json: Item.find(params[:id]), includes: ['list']
   end
 
   def create
     @item = Item.new(item_params)
     if @item.save
-      render json: @item
+      render json: @item, includes: ['list']
     else
       render json: @item, status: 422, adapter: :json_api, serializer: ActiveModel::Serializer::ErrorSerializer
     end
@@ -30,8 +32,8 @@ class ItemsController < ApplicationController
       @item.image = params[:image]
     end
 
-    if @item.save
-      render json: @item
+    if @item.save!
+      render json: @item, includes: ['list']
     else
       render json: @item, status: 422, adapter: :json_api, serializer: ActiveModel::Serializer::ErrorSerializer
     end
@@ -47,17 +49,18 @@ class ItemsController < ApplicationController
   end
 
   private
-    def json_params
-      ja = json_attributes()
-      js = ja.dup
-      js.each do |k, v|
-        if k.to_s.include?('-')
-          ja.delete(k)
-          ja[k.to_s.gsub('-', '_').to_sym] = v
-        end
+  def json_params
+    ja = json_attributes()
+    logger.debug ja.inspect
+    js = ja.dup
+    js.each do |k, v|
+      if k.to_s.include?('-')
+        ja.delete(k)
+        ja[k.to_s.gsub('-', '_').to_sym] = v
       end
+    end
 
-      pms = ActionController::Parameters.new(ja)
+    pms = ActionController::Parameters.new(ja)
    end
 
    def json_attributes
@@ -71,7 +74,7 @@ class ItemsController < ApplicationController
    end
 
    def item_params
-     json_params.permit(:name, :value, :image)
+     json_params.permit(:name, :list_id, :value, :image)
    end
 
 end

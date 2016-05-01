@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  belongs_to :user, required: false
+  belongs_to :list
 
   validates :name, :value, presence: true
 
