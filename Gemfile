@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.2.2'
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>= 5.0.0.rc1', '< 5.1'
 # Use postgresql as the database for Active Record
@@ -25,7 +27,7 @@ gem 'knock', '~> 1.4.2'
 gem 'active_model_serializers', :git => 'https://github.com/rails-api/active_model_serializers.git'
 # gem 'jsonapi-resources'
 
-gem "paperclip", "~> 5.0.0.beta1"
+gem "paperclip", "~> 5.0.0.beta2"
 
 # gem "aws-sdk", "~> 1.6"
 gem "aws-sdk", "~> 2.2.31"

@@ -11,7 +11,16 @@ module Paperclip
   end
 end
 
-# paperclip_defaults = Rails.application.config_for :paperclip
-# paperclip_defaults.symbolize_keys!
-#
-# Paperclip::Attachment.default_options.merge! paperclip_defaults
+paperclip_defaults = {
+  storage: :s3,
+  s3_region: ENV["AWS_REGION"],
+  bucket: ENV["AWS_S3_BUCKET"],
+  s3_host_name: ENV["AWS_S3_HOST_NAME"],
+  s3_redundancy_class: :reduced_redundancy,
+  s3_credentials: {
+    access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+    secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
+  }
+}
+
+Paperclip::Attachment.default_options.merge! paperclip_defaults
