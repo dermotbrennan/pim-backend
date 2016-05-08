@@ -21,3 +21,5 @@
 public/system
 
 .env
+.env.development
+.env.production
