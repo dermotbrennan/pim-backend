@@ -24,6 +24,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    render json: []
+  end
+
   private
 
   def user_id

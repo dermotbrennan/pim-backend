@@ -23,4 +23,11 @@ paperclip_defaults = {
   }
 }
 
+if Rails.env.development?
+  paperclip_defaults[:s3_host_name] = "s3"
+  paperclip_defaults[:s3_host_alias] = "s3:10001/development"
+  paperclip_defaults[:url] = ":s3_alias_url"
+  paperclip_defaults[:path] = ":class/:attachment/:id_partition/:style/:filename"
+end
+
 Paperclip::Attachment.default_options.merge! paperclip_defaults

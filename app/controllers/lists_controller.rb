@@ -2,6 +2,7 @@ class ListsController < ApplicationController
   before_action :authenticate
 
   def index
+    # raise "Explosion in data center!"
     render json: current_user.lists, include: ['items']
   end
 
